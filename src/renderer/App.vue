@@ -4,7 +4,7 @@
       <div class="win-title">APP</div>
       <div class="win_button">
         <div class="btn_minimize"></div>
-        <div class="btn_maximize"></div>
+        <div class="btn_maximizes"></div>
         <div class="btn_close"></div>
       </div>
     </div>
@@ -14,39 +14,39 @@
 
 <script>
 export default {
-  name: 'app',
-}
+  name: "app",
+};
 </script>
 
 <style lang="scss">
-body {
-  margin: 0px;
-}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  height: 100vh;
-  width: 100vw;
   border-radius: 8px;
   background-color: width;
+  // box-shadow: rgb(0, 0, 0) 0px 0px 8px;
 }
 .win-head {
   height: 30px;
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-wrap: row;
   -webkit-app-region: drag;
-  background-color: #2c3e50;
+  background-color: #dee1e6;
   cursor: move;
 
   .win-title {
     flex: 1 1 auto;
+    color: #000;
+    line-height: 30px;
+    font-size: 11px;
+    padding-left: 15px;
   }
 
   .win_button {
-    flex: 0 1 138px;
+    flex: 0 0 138px;
     justify-content: flex-end;
     div {
       width: 46px;
@@ -64,7 +64,8 @@ body {
     }
 
     .btn_minimize:hover,
-    .btn_maximize:hover {
+    .btn_maximize:hover,
+    .btn_maximizes:hover {
       background-color: #d0d2d5;
     }
 
@@ -78,7 +79,7 @@ body {
         }
       }
       &::before {
-        content: '';
+        content: "";
         width: 11px;
         height: 1px;
         background-color: #8b8d8f;
@@ -98,7 +99,7 @@ body {
         }
       }
       &::before {
-        content: '';
+        content: "";
         width: 7px;
         height: 7px;
         background-color: transparent;
@@ -108,7 +109,38 @@ body {
         left: 18px;
       }
     }
-
+    .btn_maximizes {
+      &:hover {
+        &::before {
+          border: 1px #000000 solid;
+        }
+        &::after {
+          border: 1px #000000 solid;
+        }
+      }
+      &::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        background-color: transparent;
+        border: 1px #8b8d8f solid;
+        position: absolute;
+        top: 11px;
+        left: 17px;
+      }
+      &::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        background-color: transparent;
+        border: 1px #8b8d8f solid;
+        -webkit-clip-path: polygon(100% 0, 100% 100%, 75% 100%, 0 25%, 0 0);
+        clip-path: polygon(100% 0, 100% 100%, 75% 100%, 0 25%, 0 0);
+        position: absolute;
+        top: 9px;
+        left: 19px;
+      }
+    }
     .btn_close {
       &:hover {
         background-color: #e81123;
@@ -134,7 +166,7 @@ body {
         }
       }
       &::before {
-        content: '';
+        content: "";
         width: 10px;
         height: 10px;
         position: absolute;
@@ -150,7 +182,7 @@ body {
         );
       }
       &::after {
-        content: '';
+        content: "";
         width: 10px;
         height: 10px;
         position: absolute;
